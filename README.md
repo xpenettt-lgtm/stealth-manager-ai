@@ -1,4 +1,4 @@
-# xpe.manager.ai - IA Especializada en DLLs
+# stealth.manager.ai - IA Especializada en DLLs
 
 ## 🤖 ¿Qué es?
 
