@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xpe.manager.ai - IA Especializada en DLLs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">xpe.manager.ai</h1>
+                <p class="hero-subtitle">IA Especializada en Creación de DLLs</p>
+                <p class="hero-tagline">Crea bibliotecas dinámicas completas con funciones avanzadas</p>
+                
+                <div class="hero-ctas">
+                    <button class="btn btn-primary" onclick="openAIChat()">🤖 Chat con IA Real</button>
+                    <button class="btn btn-secondary" onclick="scrollToContact()">Solicitar Acceso</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chat Section -->
+    <section class="ai-chat-section" id="ai-chat">
+        <div class="container">
+            <h2 class="section-title">🤖 Chat con IA Real - xpe.manager.ai</h2>
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="ai-status">
+                        <div class="status-indicator online"></div>
+                        <span>IA Especializada en DLLs - Conectada</span>
+                    </div>
+                    <div class="chat-actions">
+                        <button class="btn btn-small" onclick="clearChat()">Limpiar Chat</button>
+                        <button class="btn btn-small" onclick="exportChat()">Exportar</button>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message ai-message">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            <div class="message-text">
+                                ¡Hola! Soy <strong>xpe.manager.ai</strong> - tu asistente especializado en DLLs.
+                                <br><br>
+                                Puedo ayudarte con:
+                                <br>• 🔧 <strong>Generar DLLs</strong> de cualquier tipo
+                                <br>• 🚀 <strong>Optimizar</strong> rendimiento con SIMD y memory pooling
+                                <br>• 🔍 <strong>Debuggear</strong> memory leaks, stack corruption, etc.
+                                <br>• 📚 <strong>Explicar conceptos</strong> y mejores prácticas
+                                <br><br>
+                                <em>¿En qué proyecto DLL puedo ayudarte hoy?</em>
+                            </div>
+                            <div class="message-time">IA</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <input type="text" 
+                               id="chat-input" 
+                               class="chat-input" 
+                               placeholder="Escribe tu pregunta sobre DLLs... Ej: 'Crea una DLL de criptografía en C++'"
+                               onkeypress="handleChatInput(event)">
+                        <button class="send-btn" onclick="sendMessage()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22,2 15,22 11,13 2,9"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="chat-suggestions">
+                        <button class="suggestion-btn" onclick="sendSuggestion('Crea una DLL básica en C++ con funciones de matemáticas')">
+                            📝 DLL de Matemáticas
+                        </button>
+                        <button class="suggestion-btn" onclick="sendSuggestion('¿Cómo optimizar una función con SIMD?')">
+                            ⚡ Optimización SIMD
+                        </button>
+                        <button class="suggestion-btn" onclick="sendSuggestion('Tengo un memory leak en mi DLL, ¿cómo solucionarlo?')">
+                            🔍 Debug Memory Leak
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section (Legacy) -->
+    <section class="demo-section" id="demo">
+        <div class="container">
+            <h2 class="section-title">Demo Interactivo de DLLs</h2>
+            <div class="code-editor">
+                <div class="editor-header">
+                    <div class="editor-dots">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                    </div>
+                    <div class="editor-tabs">
+                        <button class="tab active" onclick="switchDemo('generate')">Generar DLL</button>
+                        <button class="tab" onclick="switchDemo('debug')">Debug DLL</button>
+                        <button class="tab" onclick="switchDemo('optimize')">Optimizar DLL</button>
+                    </div>
+                </div>
+                <div class="editor-content">
+                    <div id="demo-output" class="demo-output">
+                        <span class="typed-text" id="typed-text"></span>
+                    </div>
+                </div>
+                <div class="editor-controls">
+                    <button class="control-btn" onclick="executeCode()">Generar DLL</button>
+                    <button class="control-btn" onclick="runDebug()">Debug</button>
+                    <button class="control-btn" onclick="optimizeCode()">Optimizar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Capacidades Especializadas en DLLs</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <svg class="feature-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <path d="M3 9h18M9 3v18"/>
+                        <path d="M9 12l3 3 3-3"/>
+                    </svg>
+                    <h3 class="feature-title">Generación de DLLs</h3>
+                    <p class="feature-desc">Crea DLLs completas con funciones exports, importaciones, manejo de memoria y llamadas ABI. C++, C#, .NET y más.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <svg class="feature-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                    </svg>
+                    <h3 class="feature-title">Linking Inteligente</h3>
+                    <p class="feature-desc">Configuración automática de linking, resolvedor de dependencias, optimización de imports/exports y manejo de símbolos.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <svg class="feature-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1m14.5-9.5L17.5 9l3.5 3.5-2.5 2.5-3.5-3.5z"/>
+                        <path d="M1.5 15L6 10.5 3.5 8 1.5 10.5z"/>
+                    </svg>
+                    <h3 class="feature-title">Debugging DLL</h3>
+                    <p class="feature-desc">Diagnóstico avanzado de DLLs: memory leaks, stack corruption, calling conventions, exportación de símbolos y más.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <svg class="feature-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        <path d="M7 14l8-8m-3-3l5 5"/>
+                    </svg>
+                    <h3 class="feature-title">Multiplataforma</h3>
+                    <p class="feature-desc">Genera DLLs para Windows (.dll), Linux (.so), macOS (.dylib), Android (.so) y sistemas embebidos. 32bit y 64bit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DLL Types Section -->
+    <section class="dll-types">
+        <div class="container">
+            <h2 class="section-title">Tipos de DLLs Especializadas</h2>
+            <div class="dll-types-grid">
+                <div class="dll-type-card">
+                    <div class="dll-icon">🔧</div>
+                    <h3>Runtime Libraries</h3>
+                    <p>CRT, MFC, ATL, STL, Boost - Librerías de tiempo de ejecución completas</p>
+                    <ul>
+                        <li>Memoria management</li>
+                        <li>I/O operations</li>
+                        <li>String handling</li>
+                        <li>Exception handling</li>
+                    </ul>
+                </div>
+                
+                <div class="dll-type-card">
+                    <div class="dll-icon">🔌</div>
+                    <h3>Plugin Systems</h3>
+                    <p>Sistemas de plugins dinámicos, interfaces COM, extensibilidad</p>
+                    <ul>
+                        <li>Dynamic loading</li>
+                        <li>Interface contracts</li>
+                        <li>Plugin discovery</li>
+                        <li>Version management</li>
+                    </ul>
+                </div>
+                
+                <div class="dll-type-card">
+                    <div class="dll-icon">⚡</div>
+                    <h3>Performance DLLs</h3>
+                    <p>Librerías de alto rendimiento, SIMD, optimizaciones hardware</p>
+                    <ul>
+                        <li>SIMD operations</li>
+                        <li>Multi-threading</li>
+                        <li>GPU acceleration</li>
+                        <li>Memory pooling</li>
+                    </ul>
+                </div>
+                
+                <div class="dll-type-card">
+                    <div class="dll-icon">🛡️</div>
+                    <h3>Security Libraries</h3>
+                    <p>Criptografía, autenticación, integridad de datos</p>
+                    <ul>
+                        <li>Encryption/Decryption</li>
+                        <li>Digital signatures</li>
+                        <li>Secure storage</li>
+                        <li>Certificate handling</li>
+                    </ul>
+                </div>
+                
+                <div class="dll-type-card">
+                    <div class="dll-icon">🌐</div>
+                    <h3>Network Libraries</h3>
+                    <p>Sockets, protocolos, comunicación IPC, WebSocket</p>
+                    <ul>
+                        <li>TCP/UDP sockets</li>
+                        <li>HTTP/HTTPS</li>
+                        <li>Message queues</li>
+                        <li>Named pipes</li>
+                    </ul>
+                </div>
+                
+                <div class="dll-type-card">
+                    <div class="dll-icon">🗄️</div>
+                    <h3>Data Access</h3>
+                    <p>ORMs, databases, serialization, caching</p>
+                    <ul>
+                        <li>SQLite integration</li>
+                        <li>JSON/XML parsing</li>
+                        <li>Object persistence</li>
+                        <li>Cache systems</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">Licencias de Desarrollo DLL</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Personal</h3>
+                    <div class="pricing-price">
+                        <span class="price">$29</span>
+                        <span class="period">/mes</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Generación de DLLs básicas</li>
+                        <li>10 tipos de DLLs</li>
+                        <li>Debugging básico</li>
+                        <li>Generaciones: 50/mes</li>
+                        <li>Soporte community</li>
+                    </ul>
+                    <button class="btn btn-outline">Elegir Plan</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Más Popular</div>
+                    <h3 class="pricing-title">Pro</h3>
+                    <div class="pricing-price">
+                        <span class="price">$79</span>
+                        <span class="period">/mes</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Todos los tipos de DLLs</li>
+                        <li>Debugging avanzado</li>
+                        <li>Optimización automática</li>
+                        <li>Generaciones ilimitadas</li>
+                        <li>Exportación multiplataforma</li>
+                        <li>Chat prioritario</li>
+                    </ul>
+                    <button class="btn btn-primary">Elegir Plan</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Enterprise</h3>
+                    <div class="pricing-price">
+                        <span class="price">$199</span>
+                        <span class="period">/mes</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Todo del plan Pro</li>
+                        <li>Custom DLL frameworks</li>
+                        <li>Code signing incluido</li>
+                        <li>CI/CD integration</li>
+                        <li>Soporte 24/7 dedicado</li>
+                        <li>Training personalizado</li>
+                    </ul>
+                    <button class="btn btn-outline">Contactar Ventas</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">¿Listo para crear DLLs profesionales?</h2>
+                <p class="contact-subtitle">Únete a la revolución de desarrollo de DLLs con IA. Acceso anticipado disponible.</p>
+                
+                <form class="contact-form" onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="tu@email.com" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Solicitar Acceso Beta</button>
+                </form>
+                
+                <p class="form-note">* Beta privada de desarrollo de DLLs. Solo noticias importantes y acceso temprano.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="footer-title">xpe.manager.ai</h3>
+                    <p class="footer-tagline">IA Especializada en DLLs</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Producto</h4>
+                        <a href="#demo">Demo DLL</a>
+                        <a href="#pricing">Precios</a>
+                        <a href="#contact">Acceso Beta</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Desarrollador</h4>
+                        <span>xpe.nettt</span>
+                        <span>Versión: 0.2.0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 xpe.manager.ai - Especialistas en DLLs. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
